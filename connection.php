@@ -1,8 +1,8 @@
 <?php
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'seu_usuario');
-define('DB_PASSWORD', 'sua_senha');
-define('DB_NAME', 'seu_banco_de_dados');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', 'usbw');
+define('DB_NAME', 'correio');
 
 $connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
