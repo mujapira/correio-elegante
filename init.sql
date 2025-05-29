@@ -34,11 +34,11 @@ CREATE TABLE IF NOT EXISTS `MENSAGEM` (
   `REMETENTE` varchar(50) DEFAULT NULL,
   `DESTINATARIO` varchar(50) NOT NULL,
   `MENSAGEM` varchar(50) NOT NULL,
-  `COR` varchar(20) NOT NULL,
-  `FUNDO` varchar(20) NOT NULL,
-  `DATA/HORA` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `COR` varchar(20) NOT NULL DEFAULT '#000000',
+  `FUNDO` varchar(20) NOT NULL DEFAULT '#ffffff',
+  `DATA_HORA` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`ID_MENSAGEM`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 
 -- --------------------------------------------------------
