@@ -44,27 +44,18 @@ if(isset($_GET['message'])){
     >
     <title>Correio Elegante - Visual da Imagem</title>
     <style>
-        body {
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #9C4F4F;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            box-sizing: border-box;
-            color: #F5E9E9;
+        html{
+            height: 90%;
         }
- 
+
         .container-geral {
             background-color: rgb(209, 59, 59);
-            width: 90%;
-            max-width: 1000px;
+            width: 96%;
             padding: 25px;
             display: flex;
             flex-direction: column;
             gap: 20px;
+            height: 100%;
         }
  
         header {
@@ -75,7 +66,7 @@ if(isset($_GET['message'])){
         }
  
         header h1 {
-            font-size: 26px;
+            font-size: 36px;
             font-weight: normal;
             margin: 10px 0;
             color: #F5E9E9;
@@ -86,6 +77,7 @@ if(isset($_GET['message'])){
         .conteudo-principal {
             display: flex;
             gap: 25px;
+            height: 100%;
         }
  
         .coluna-esquerda {
@@ -100,7 +92,7 @@ if(isset($_GET['message'])){
             color: #7D3C3C;
             padding: 10px 20px;
             border-radius: 8px;
-            font-size: 13px;
+            font-size: 22px;
             font-weight: normal;
             text-align: center;
             border: 1px solid #C8A8A8;
@@ -127,7 +119,7 @@ if(isset($_GET['message'])){
         }
  
         .mensagem-display p {
-            font-size: 42px;
+            font-size: 52px;
             margin: 0;
             font-style: italic;
             font-family: 'Georgia', 'Times New Roman', Times, serif;
@@ -145,11 +137,11 @@ if(isset($_GET['message'])){
             border-left: 1px solid #F5E9E9;
             display: flex;
             flex-direction: column;
-            max-height: 400px;
+            height: 100%;
         }
  
         .historico-coluna h2 {
-            font-size: 18px;
+            font-size: 32px;
             text-transform: uppercase;
             margin-top: 0;
             margin-bottom: 20px;
@@ -168,7 +160,7 @@ if(isset($_GET['message'])){
         }
  
         .historico-lista li {
-            font-size: 15px;
+            font-size: 22px;
             color: #F5E9E9;
             margin-bottom: 12px;
             padding-bottom: 8px;
@@ -177,24 +169,23 @@ if(isset($_GET['message'])){
         }
     </style>
 </head>
-<body>
+<body class="container-geral">
  
-<div class="container-geral">
     <header>
         <h1>CORREIO ELEGANTE</h1>
     </header>
- 
+
     <div class="conteudo-principal">
         <div class="coluna-esquerda">
             <div class="etiqueta remetente-area" id="remetenteAtual">REMETENTE</div>
- 
+
             <div class="mensagem-display" id="mensagemPrincipal">
 
             </div>
- 
+
             <div class="etiqueta destinatario-area" id="destinatarioAtual">DESTINATÁRIO</div>
         </div>
- 
+
         <div class="historico-coluna">
             <h2>HISTÓRICO</h2>
             <ul class="historico-lista" id="listaHistoricoItens">
@@ -206,34 +197,33 @@ if(isset($_GET['message'])){
             </ul>
         </div>
     </div>
-</div>
- 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const mensagens = <?php echo json_encode($mensagens, JSON_UNESCAPED_UNICODE); ?>;
+
     
-        const mensagemPrincipalElemento = document.getElementById('mensagemPrincipal');
-        const listaHistoricoItensElemento = document.getElementById('listaHistoricoItens');
-        const remetenteElemento = document.getElementById('remetenteAtual');
-        const destinatarioElemento = document.getElementById('destinatarioAtual');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mensagens = <?php echo json_encode($mensagens, JSON_UNESCAPED_UNICODE); ?>;
+        
+            const mensagemPrincipalElemento = document.getElementById('mensagemPrincipal');
+            const listaHistoricoItensElemento = document.getElementById('listaHistoricoItens');
+            const remetenteElemento = document.getElementById('remetenteAtual');
+            const destinatarioElemento = document.getElementById('destinatarioAtual');
 
-        function exibirMensagem(indexAtual){
-            console.log(indexAtual)
-            const msg = mensagens[indexAtual];
+            function exibirMensagem(indexAtual){
+                const msg = mensagens[indexAtual];
 
-            mensagemPrincipalElemento.innerHTML = `
-                    <p><strong>${msg.mensagem}</strong></p>
-                `;
-            mensagemPrincipalElemento.style.color = msg.cor_texto || '#000';
-            mensagemPrincipalElemento.style.backgroundColor = msg.cor_fundo || '#fff';
+                mensagemPrincipalElemento.innerHTML = `
+                        <p><strong>${msg.mensagem}</strong></p>
+                    `;
+                mensagemPrincipalElemento.style.color = msg.cor_texto || '#000';
+                mensagemPrincipalElemento.style.backgroundColor = msg.cor_fundo || '#fff';
 
-            remetenteElemento.textContent = msg.remetente ? `De: ${msg.remetente}` : "De: Anônimo";
-            destinatarioElemento.textContent = `Para: ${msg.destinatario}`;
-        }
+                remetenteElemento.textContent = msg.remetente ? `De: ${msg.remetente}` : "De: Anônimo";
+                destinatarioElemento.textContent = `Para: ${msg.destinatario}`;
+            }
 
-        exibirMensagem(<?php echo $message; ?>);
-    });
-</script>
+            exibirMensagem(<?php echo $message; ?>);
+        });
+    </script>
  
 </body>
 </html>
