@@ -1,3 +1,8 @@
+<?php
+require_once '../verificar_sessao.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -96,14 +101,14 @@
                 Lista de Mensagens
             </a>
 
-            <a href="incluir_admin.php"
+            <a href="../logout.php"
                 class="flex items-center justify-start bg-[#AF3E3E] text-white py-[18px] px-6 rounded-lg text-base font-medium uppercase w-full transition-all duration-200 ease-in-out shadow-[0_2px_4px_rgba(0,0,0,0.15),inset_0_-2px_0px_rgba(0,0,0,0.1)] hover:bg-[#A2484E] active:bg-[#8F3F44] active:translate-y-px active:shadow-[0_1px_2px_rgba(0,0,0,0.15),inset_0_-1px_0px_rgba(0,0,0,0.1)] cursor-pointer">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                     class="w-[22px] h-[22px] mr-[18px] fill-current">
                     <path
                         d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                 </svg>
-                Incluir Admin
+                Deslogar
             </a>
         </div>
     </div>

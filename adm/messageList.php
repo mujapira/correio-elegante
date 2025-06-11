@@ -1,4 +1,8 @@
 <?php
+require_once '../verificar_sessao.php';
+?>
+
+<?php
 if (function_exists('date_default_timezone_set')) { // Verifica se a função existe antes de chamar
     date_default_timezone_set('America/Sao_Paulo');
 }
